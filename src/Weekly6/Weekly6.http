@@ -1,0 +1,98 @@
+@baseUrl = http://localhost:5041
+
+### ================== USERS ==================
+### Get all users✅
+GET {{baseUrl}}/api/users
+Accept: application/json
+Content-Type: application/json
+
+### Get user with wallet detail✅
+GET {{baseUrl}}/api/users/1
+Accept: application/json
+Content-Type: application/json
+
+### Create user and wallet✅
+POST {{baseUrl}}/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "sugeng",
+  "fullName": "Ucup Sanjaya",
+  "email": "sugeng12@gmail.com",
+  "phone": "082347711777"
+}
+
+### Update user✅
+PUT {{baseUrl}}/api/users/11
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "mawarmelati",
+  "fullName": "Mawar Melati",
+  "email": "maway32@gmail.com",
+  "phone": "082347716677"
+}
+
+### User Transaction history✅
+GET {{baseUrl}}/api/users/4/transactions
+Accept: application/json
+Content-Type: application/json
+
+### User Mutation history✅
+GET {{baseUrl}}/api/users/4/mutations
+Accept: application/json
+Content-Type: application/json
+
+### ================== PAYMENT METHOD ==================
+### Get all payment method✅
+GET {{baseUrl}}/api/payment-methods?isActive=true
+Accept: application/json
+Content-Type: application/json
+
+### ================== TOP UP REQUEST ==================
+### Get all top up request✅
+GET {{baseUrl}}/api/topup-requests
+Accept: application/json
+Content-Type: application/json
+
+### ================== WALLETS ==================
+### Get wallet information✅
+GET {{baseUrl}}/api/wallets/4
+Accept: application/json
+Content-Type: application/json
+
+### Top up request✅
+POST {{baseUrl}}/api/wallets/4/topup
+Accept: application/json
+Content-Type: application/json
+
+{
+  "paymentMethodId": 1,
+  "amount": 25000
+}
+
+### Top up Confirm✅
+POST {{baseUrl}}/api/wallets/topup/7/confirm?actorUserId=4
+Accept: application/json
+Content-Type: application/json
+
+### ================== TRANSFER ==================
+### Transfer balance
+POST {{baseUrl}}/api/transfers
+Accept: application/json
+Content-Type: application/json
+
+{
+  "senderWalletId": 1,
+  "receiverWalletId": 4,
+  "amount": 30000,
+  "description": "Ini adalah transfer"
+}
+
+
+
+
+
+
