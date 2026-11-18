@@ -154,3 +154,4 @@ D:\Koda\weekly\koda-b1-weekly6\src\Weekly6\obj\Debug\net10.0\refint\Weekly6.dll
 D:\Koda\weekly\koda-b1-weekly6\src\Weekly6\obj\Debug\net10.0\Weekly6.pdb
 D:\Koda\weekly\koda-b1-weekly6\src\Weekly6\obj\Debug\net10.0\Weekly6.genruntimeconfig.cache
 D:\Koda\weekly\koda-b1-weekly6\src\Weekly6\obj\Debug\net10.0\ref\Weekly6.dll
+D:\Koda\weekly\koda-b1-weekly6\src\Weekly6\obj\Debug\net10.0\Weekly6.sourcelink.json

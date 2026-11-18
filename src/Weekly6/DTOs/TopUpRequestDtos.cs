@@ -8,7 +8,7 @@ public sealed record TopUpRequestDto(
 );
 
 public sealed record TopUpResponse(
-  long walletId,
+  long WalletId,
   long TopUpRequestId,
   long TransactionId,
   string ReferenceNo,
@@ -27,7 +27,7 @@ public sealed record TopUpResponse(
     PaymentMethod paymentMethod)
   {
     return new TopUpResponse(
-      walletId: topUpRequest.WalletId,
+      WalletId: topUpRequest.WalletId,
       TopUpRequestId: topUpRequest.Id,
       TransactionId: transaction.Id,
       ReferenceNo: transaction.ReferenceNo,

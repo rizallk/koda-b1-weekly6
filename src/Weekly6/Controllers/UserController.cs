@@ -23,7 +23,7 @@ public sealed class UserController(IUserService service) : ControllerBase
     return Ok(users);
   }
 
-  [HttpGet("{id}/transactions")]
+  [HttpGet("{id:long}/transactions")]
   [ProducesResponseType(
       typeof(IReadOnlyList<UserResponse>), StatusCodes.Status200OK)]
   public async Task<ActionResult<PagedResponse<TransactionResponse>>> GetUserTransactionById([FromRoute] long id, [FromQuery] TransactionFilterRequest filter, CancellationToken cancellationToken)
@@ -32,7 +32,7 @@ public sealed class UserController(IUserService service) : ControllerBase
     return Ok(userTransactions);
   }
 
-  [HttpGet("{id}/mutations")]
+  [HttpGet("{id:long}/mutations")]
   [ProducesResponseType(
       typeof(IReadOnlyList<UserResponse>), StatusCodes.Status200OK)]
   public async Task<ActionResult<PagedResponse<WalletMutationResponse>>> GetUserMutationById([FromRoute] long id, [FromQuery] WalletMutationFilterRequest filter, CancellationToken cancellationToken)
@@ -41,7 +41,7 @@ public sealed class UserController(IUserService service) : ControllerBase
     return Ok(userTransactions);
   }
 
-  [HttpGet("{id}")]
+  [HttpGet("{id:int}")]
   [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
   public async Task<ActionResult<UserResponse>> GetById(
@@ -55,7 +55,6 @@ public sealed class UserController(IUserService service) : ControllerBase
   [HttpPost]
   [ProducesResponseType(typeof(UserResponse), StatusCodes.Status201Created)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-  [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status409Conflict)]
   public async Task<ActionResult<UserResponse>> Create([FromBody] UserRequest request, CancellationToken cancellationToken)
   {
@@ -88,7 +87,7 @@ public sealed class UserController(IUserService service) : ControllerBase
     }
   }
 
-  [HttpPut("{id}")]
+  [HttpPut("{id:int}")]
   [ProducesResponseType(StatusCodes.Status200OK)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]

@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### User Transaction history✅
-GET {{baseUrl}}/api/users/4/transactions
+GET {{baseUrl}}/api/users/1/transactions
 Accept: application/json
 Content-Type: application/json
 

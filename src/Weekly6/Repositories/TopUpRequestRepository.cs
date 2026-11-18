@@ -12,9 +12,9 @@ public sealed class TopUpRequestRepository(AppDbContext db) : ITopUpRequestRepos
   {
     return await _db.TopUpRequests
      .AsNoTracking()
-     .Include(p => p.Transaction)
-     .Include(p => p.PaymentMethod)
-     .OrderByDescending(p => p.CreatedAtUtc)
+     .Include(t => t.Transaction)
+     .Include(t => t.PaymentMethod)
+     .OrderByDescending(t => t.CreatedAtUtc)
      .ToListAsync(cancellationToken);
   }
 }

@@ -13,7 +13,7 @@ public sealed class WalletController(IWalletService service) : ControllerBase
 {
   private readonly IWalletService _service = service;
 
-  [HttpGet("{userId}")]
+  [HttpGet("{userId:int}")]
   [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
   public async Task<ActionResult<UserResponse>> GetByUserId(
@@ -25,11 +25,10 @@ public sealed class WalletController(IWalletService service) : ControllerBase
   }
 
   // Top Up Request
-  [HttpPost("{userId}/topup")]
+  [HttpPost("{userId:long}/topup")]
   [ProducesResponseType(StatusCodes.Status200OK)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-  [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status409Conflict)]
   public async Task<ActionResult<WalletResponse>> RequestTopUp(
       [FromRoute] long userId, [FromBody] TopUpRequestDto request, CancellationToken cancellationToken)
   {
@@ -51,7 +50,7 @@ public sealed class WalletController(IWalletService service) : ControllerBase
   }
 
   // Top Up Confirm
-  [HttpPost("topup/{topUpRequestId}/confirm")]
+  [HttpPost("topup/{topUpRequestId:long}/confirm")]
   [ProducesResponseType(StatusCodes.Status200OK)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
   [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
